@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポモドーロタイマー</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <div class="timer-window">
+            <!-- Window controls -->
+            <div class="window-controls">
+                <div class="control-buttons">
+                    <span class="control minimize">-</span>
+                    <span class="control maximize">□</span>
+                    <span class="control close">×</span>
+                </div>
+            </div>
+            
+            <!-- App title -->
+            <h1 class="app-title">ポモドーロタイマー</h1>
+            
+            <!-- Timer status -->
+            <div class="timer-status">作業中</div>
+            
+            <!-- Circular progress and timer display -->
+            <div class="timer-container">
+                <div class="progress-circle">
+                    <svg class="progress-ring" width="300" height="300">
+                        <!-- Background circle -->
+                        <circle
+                            class="progress-ring-background"
+                            cx="150"
+                            cy="150"
+                            r="120"
+                            fill="none"
+                            stroke="#E5E7EB"
+                            stroke-width="20">
+                        </circle>
+                        <!-- Progress circle -->
+                        <circle
+                            class="progress-ring-progress"
+                            cx="150"
+                            cy="150"
+                            r="120"
+                            fill="none"
+                            stroke="#6366F1"
+                            stroke-width="20"
+                            stroke-linecap="round"
+                            stroke-dasharray="754"
+                            stroke-dashoffset="377"
+                            transform="rotate(-90 150 150)">
+                        </circle>
+                    </svg>
+                    <div class="timer-display">
+                        <span class="timer-text">25:00</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Control buttons -->
+            <div class="control-buttons-container">
+                <button class="btn btn-primary" id="startBtn">開始</button>
+                <button class="btn btn-secondary" id="resetBtn">リセット</button>
+            </div>
+            
+            <!-- Today's progress -->
+            <div class="progress-section">
+                <h3 class="progress-title">今日の進捗</h3>
+                <div class="progress-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">完了</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1時間40分</span>
+                        <span class="stat-label">集中時間</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/timer.js') }}"></script>
+</body>
+</html>
